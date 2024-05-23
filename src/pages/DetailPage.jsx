@@ -48,7 +48,7 @@ const DetailPage = () => {
         <DetailBtnBox>
           <DetailBtn>수정</DetailBtn>
           <DetailBtn>삭제</DetailBtn>
-          <Link to="/Home">
+          <Link to="/">
             <DetailBtn>뒤로가기</DetailBtn>
           </Link>
         </DetailBtnBox>
