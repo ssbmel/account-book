@@ -1,6 +1,6 @@
 
-const Detail = () => {
-  return (null)
+const DetailPage = () => {
+  return (<p>test</p>)
 }
 
-export default Detail;
+export default DetailPage;

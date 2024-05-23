@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent} from '../stylecomponent.jsx';
+import { Link } from "react-router-dom";
+import DetailPage from "./DetailPage.jsx";
 
 
 function App() {
@@ -170,11 +172,11 @@ export default App;
 const List = ({ id, date, item, amount, description }) => {
   return (
     <ListContent>
-      <p>{date}</p>
-      <p>
-        {item} | {description}
-      </p>
-      <p>{amount}</p>
+      <Link to={<DetailPage />}>
+        <p>{date}</p>
+        <p>{item} - {description}</p>
+        <p>{amount}</p>
+      </Link>
     </ListContent>
   );
 };
