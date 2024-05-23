@@ -172,7 +172,7 @@ export default App;
 const List = ({ id, date, item, amount, description }) => {
   return (
     <ListContent>
-      <Link to={<DetailPage />}>
+      <Link to="/DetailPage">
         <p>{date}</p>
         <p>{item} - {description}</p>
         <p>{amount}</p>
