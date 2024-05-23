@@ -71,5 +71,9 @@ export const ListBox = styled.div`
   justify-content: center;
   box-sizing: border-box;
   overflow-y: auto;
+
 `;
 
+export const Text = styled.p`
+  color: black;
+`

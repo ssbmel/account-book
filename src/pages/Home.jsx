@@ -2,9 +2,10 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent} from '../stylecomponent.jsx';
+import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent, Text} from '../stylecomponent.jsx';
 import { Link } from "react-router-dom";
 import DetailPage from "./DetailPage.jsx";
+import styled from "styled-components";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       date: "2024-01-10",
       item: "게임",
       amount: 40500,
-      description: "company of ",
+      description: "좀보이드",
     },
     {
       id: "24310f72-56b4-41a7-a9c2-458580ef1f8",
@@ -169,14 +170,18 @@ function App() {
 
 export default App;
 
+const LinkStyle = styled(Link)`
+  text-decoration: none;
+`
+
 const List = ({ id, date, item, amount, description }) => {
   return (
     <ListContent>
-      <Link to="/DetailPage">
-        <p>{date}</p>
-        <p>{item} - {description}</p>
-        <p>{amount}</p>
-      </Link>
+      <LinkStyle to="/DetailPage">
+        <Text>{date}</Text>
+        <Text>{item} - {description}</Text>
+        <Text>{amount}</Text>
+      </LinkStyle>
     </ListContent>
   );
 };
