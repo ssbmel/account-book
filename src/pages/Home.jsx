@@ -2,9 +2,8 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent, Text} from '../stylecomponent.jsx';
+import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent, Text, InputBtn, InputStyle} from '../style/stylecomponent.jsx';
 import { Link } from "react-router-dom";
-import DetailPage from "./DetailPage.jsx";
 import styled from "styled-components";
 
 
@@ -86,7 +85,7 @@ function App() {
       <InputBox>
         <InputContent>
           날짜
-          <input
+          <InputStyle
             type="date"
             value={date}
             onChange={(e) => {
@@ -96,7 +95,7 @@ function App() {
         </InputContent>
         <InputContent>
           항목
-          <input
+          <InputStyle
             type="text"
             placeholder="지출 항목"
             value={item}
@@ -107,7 +106,7 @@ function App() {
         </InputContent>
         <InputContent>
           금액
-          <input
+          <InputStyle
             type="text"
             placeholder="지출 금액"
             value={amount}
@@ -118,7 +117,7 @@ function App() {
         </InputContent>
         <InputContent>
           내용
-          <input
+          <InputStyle
             type="text"
             placeholder="지출 내용"
             value={description}
@@ -128,7 +127,7 @@ function App() {
           />
         </InputContent>
         <InputContent>
-          <button onClick={addContentHandler}>저장</button>
+          <InputBtn onClick={addContentHandler}>저장</InputBtn>
         </InputContent>
       </InputBox>
 

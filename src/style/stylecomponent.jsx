@@ -22,11 +22,21 @@ export const InputBox = styled.div`
 export const InputContent = styled.div`
   width: 100%;
   margin: 10px;
-  font-size: 15px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
+export const InputStyle = styled.input`
+  height: 25px;
+  margin-left: 10px;
+`
+export const InputBtn = styled.button`
+  width: 50px;
+  height: 30px;
+  background-color: black;
+  color: white;
+`
 export const MonthBoxList = styled.div`
   width: 80%;
   padding: 20px;
@@ -73,7 +83,6 @@ export const ListBox = styled.div`
   overflow-y: auto;
 
 `;
-
 export const Text = styled.p`
   color: black;
 `
