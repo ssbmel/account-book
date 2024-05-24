@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent, Text, InputBtn, InputStyle} from '../style/stylecomponent.jsx';
-import { Link, json } from "react-router-dom";
+import { Link, Router, json } from "react-router-dom";
 import styled from "styled-components";
 
 const fakeData = [
@@ -51,11 +51,9 @@ const fakeData = [
   },
 ]
 
-function App() {
+function Home({contents, setContents}) {
 
-  const [contents, setContents] = useState([]);
-
-
+  
   const [date, setDate] = useState("");
   const [item, setItem] = useState("");
   const [amount, setAmount] = useState("");
@@ -190,7 +188,7 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
 
 const LinkStyle = styled(Link)`
   text-decoration: none;
@@ -199,7 +197,7 @@ const LinkStyle = styled(Link)`
 const List = ({ id, date, item, amount, description }) => {
   return (
     <ListContent>
-      <LinkStyle to="/DetailPage">
+      <LinkStyle to={`/DetailPage/${id}`}>
         <Text>{date}</Text>
         <Text style={{width: "600px"}}>{item} - {description}</Text>
         <Text>{amount}</Text>

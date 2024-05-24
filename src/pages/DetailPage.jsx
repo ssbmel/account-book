@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const DetailContainer = styled.div`
@@ -33,18 +33,23 @@ const DetailBtn = styled.button`
   color: white;
 `;
 
-const DetailPage = () => {
+
+const DetailPage = ({contents, setContents}) => {
+  const params = useParams().id;
+
+  const findData = contents.find((content)=>content.id === params);
+  console.log(findData);
   return (
     <DetailContainer>
       <DetailListBox>
         날짜
-        <DetailInput type="text" />
+        <DetailInput type="date" defaultValue={findData.date}/>
         항목
-        <DetailInput type="text" />
+        <DetailInput type="text" defaultValue={findData.item}/>
         금액
-        <DetailInput type="text" />
+        <DetailInput type="text" defaultValue={findData.amount}/>
         내용
-        <DetailInput type="text" />
+        <DetailInput type="text" defaultValue={findData.description}/>
         <DetailBtnBox>
           <DetailBtn>수정</DetailBtn>
           <DetailBtn>삭제</DetailBtn>
