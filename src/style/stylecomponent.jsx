@@ -14,7 +14,7 @@ export const InputBox = styled.div`
   width: 80%;
   border: 1px solid black;
   text-align: center;
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 10px 0;
   display: grid;
   justify-content: center;
@@ -65,18 +65,22 @@ export const MonthBox = styled.div`
 export const ListContent = styled.div`
   width: 80%;
   margin: 15px auto;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid black;
-  height: 80px;
+  height: 100px;
   display: grid;
   align-items: center;
   box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
 `;
 export const ListBox = styled.div`
   border: 1px solid black;
   width: 80%;
   height: 500px;
-  margin: 10px auto;
+  margin: 10px auto 50px;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -84,5 +88,10 @@ export const ListBox = styled.div`
 
 `;
 export const Text = styled.p`
+  width: 800px;
   color: black;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 10px;
 `
