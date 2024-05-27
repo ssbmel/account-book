@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent, Text, InputBtn, InputStyle} from '../style/stylecomponent.jsx';
+import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent, Text, InputBtn, InputStyle, AmountText} from '../style/stylecomponent.jsx';
 import { Link, Router, json } from "react-router-dom";
 import styled from "styled-components";
 import { ListContext } from "../Router.jsx";
@@ -104,8 +104,8 @@ function Home({contents, setContents}) {
             <MonthBox 
             key={index} 
             onClick={() => onClickMonth(m)}
-            backgroundColor={nowMonth === m ? 'black' : undefined}
-            color={nowMonth === m ? 'white' : undefined}
+            backgroundColor={nowMonth === m ? 'rgba(249, 181, 4, 1)' : 'white'}
+            color={nowMonth === m ? 'black' : undefined}
             >
               {m}월
             </MonthBox>
@@ -142,7 +142,7 @@ const List = ({ content }) => {
       <LinkStyle to={`/DetailPage/${content.id}`}>
         <Text>{content.date}</Text>
         <Text style={{width: "600px"}}>{content.item} - {content.description}</Text>
-        <Text>{content.amount}</Text>
+        <AmountText>{content.amount}원</AmountText>
       </LinkStyle>
     </ListContent>
   );

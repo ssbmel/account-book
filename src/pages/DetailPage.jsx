@@ -6,7 +6,8 @@ const DetailContainer = styled.div`
   width: 1000px;
   margin: 100px auto;
   padding: 20px;
-  border: 1px solid black;
+  background-color : rgba(255, 231, 170, 1);
+  border-radius: 20px;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -29,9 +30,11 @@ const DetailBtn = styled.button`
   margin: 10px;
   width: auto;
   height: 30px;
+  font-size:18px;
   cursor: pointer;
-  background-color: black;
-  color: white;
+  background-color: rgba(249, 181, 4, 1);
+  color: black;
+  border: none;
 `;
 
 
@@ -88,7 +91,7 @@ const DetailPage = ({contents, setContents}) => {
           <DetailBtn onClick={editHandler}>수정</DetailBtn>
           <DetailBtn onClick={deleteHandler}>삭제</DetailBtn>
           <Link to="/">
-            <DetailBtn>뒤로가기</DetailBtn>
+            <DetailBtn>◀️Back</DetailBtn>
           </Link>
         </DetailBtnBox>
       </DetailListBox>

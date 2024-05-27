@@ -4,7 +4,8 @@ export const Container = styled.div`
   width: 1000px;
   margin: 100px auto;
   padding: 20px;
-  border: 1px solid black;
+  background-color : rgba(108, 154, 71, 1);
+  border-radius: 20px;
   display: gird;
   align-items: center;
   justify-content: center;
@@ -12,7 +13,8 @@ export const Container = styled.div`
 `;
 export const InputBox = styled.div`
   width: 80%;
-  border: 1px solid black;
+  border-radius: 20px;
+  background-color : rgba(255, 231, 170, 1);
   text-align: center;
   margin: 40px auto;
   padding: 10px 0;
@@ -32,15 +34,18 @@ export const InputStyle = styled.input`
   margin-left: 10px;
 `
 export const InputBtn = styled.button`
-  width: 50px;
+  width: 60px;
   height: 30px;
-  background-color: black;
-  color: white;
+  background-color: rgba(249, 181, 4, 1);
+  border: none;
+  color: black;
+  cursor: pointer;
 `
 export const MonthBoxList = styled.div`
   width: 80%;
   padding: 20px;
-  border: 1px solid black;
+  background-color : rgba(255, 231, 170, 1);
+  border-radius: 20px;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(6, 1fr);
@@ -51,7 +56,7 @@ export const MonthBoxList = styled.div`
 export const MonthBox = styled.div`
   background-color: ${(props)=> props.backgroundColor};
   color : ${(props) => props.color};
-  border: 1px solid black;
+  border-radius: 10px;
   width: 80px;
   height: 50px;
   margin: 10px;
@@ -62,22 +67,8 @@ export const MonthBox = styled.div`
   cursor: pointer;
   box-sizing: border-box;
 `;
-export const ListContent = styled.div`
-  width: 80%;
-  margin: 15px auto;
-  padding: 5px;
-  border: 1px solid black;
-  height: 100px;
-  display: grid;
-  align-items: center;
-  box-sizing: border-box;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 
-`;
 export const ListBox = styled.div`
-  border: 1px solid black;
   width: 80%;
   height: 500px;
   margin: 10px auto 50px;
@@ -85,13 +76,42 @@ export const ListBox = styled.div`
   justify-content: center;
   box-sizing: border-box;
   overflow-y: auto;
+  
+`;
+
+export const ListContent = styled.div`
+  width: 100%;
+  margin: 15px auto;
+  padding: 5px;
+  background-color : rgba(255, 231, 170, 1);
+  border-radius: 20px;
+  height: 100px;
+  align-items: center;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
 
 `;
+
 export const Text = styled.p`
   width: 800px;
   color: black;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  margin: 10px;
-`
+  margin: 15px;
+`;
+
+export const AmountText = styled.p`
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 20px;
+  display: grid;
+  position: absolute;
+  font-size:20px;
+  right: 10px;
+  bottom: 15px;
+`;
