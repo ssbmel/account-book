@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useRef } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const DetailContainer = styled.div`
@@ -35,23 +36,45 @@ const DetailBtn = styled.button`
 
 
 const DetailPage = ({contents, setContents}) => {
-  const params = useParams().id;
+  const { id } = useParams();
+  const findData = contents.find((content)=>content.id === id);
 
-  const findData = contents.find((content)=>content.id === params);
-  console.log(findData);
+  const dateRef = useRef(null);
+  const itemRef = useRef(null);
+  const amountRef = useRef(null);
+  const descriptionRef = useRef(null);
+
+  const navigate = useNavigate();
+
+
+  const editHandler = () => {
+    const editContent = {
+      
+      ...findData,
+      date : dateRef.current.value,
+      item : itemRef.current.value,
+      amount : amountRef.current.value,
+      description : descriptionRef.current.value
+    }
+    console.log(editContent);
+    const editContents = contents.map(content => content.id === id ? editContent : content)
+    setContents(editContents)
+    navigate('/');
+  }
+
   return (
     <DetailContainer>
       <DetailListBox>
         날짜
-        <DetailInput type="date" defaultValue={findData.date}/>
+        <DetailInput type="date" defaultValue={findData.date} ref={dateRef}/>
         항목
-        <DetailInput type="text" defaultValue={findData.item}/>
+        <DetailInput type="text" defaultValue={findData.item} ref={itemRef}/>
         금액
-        <DetailInput type="text" defaultValue={findData.amount}/>
+        <DetailInput type="text" defaultValue={findData.amount} ref={amountRef}/>
         내용
-        <DetailInput type="text" defaultValue={findData.description}/>
+        <DetailInput type="text" defaultValue={findData.description} ref={descriptionRef}/>
         <DetailBtnBox>
-          <DetailBtn>수정</DetailBtn>
+          <DetailBtn onClick={editHandler}>수정</DetailBtn>
           <DetailBtn>삭제</DetailBtn>
           <Link to="/">
             <DetailBtn>뒤로가기</DetailBtn>
