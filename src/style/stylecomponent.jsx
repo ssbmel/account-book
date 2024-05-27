@@ -39,9 +39,9 @@ export const InputBtn = styled.button`
   width: 60px;
   height: 30px;
   background-color: rgba(249, 181, 4, 1);
-
   color: black;
   cursor: pointer;
+  border: none;
 `
 export const MonthBoxList = styled.div`
   width: 80%;

@@ -30,7 +30,7 @@ const DetailBtn = styled.button`
   margin: 10px;
   width: auto;
   height: 30px;
-  font-size:18px;
+  font-size: 15px;
   cursor: pointer;
   background-color: rgba(249, 181, 4, 1);
   color: black;
