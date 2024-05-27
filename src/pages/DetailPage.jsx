@@ -49,18 +49,29 @@ const DetailPage = ({contents, setContents}) => {
 
   const editHandler = () => {
     const editContent = {
-      
       ...findData,
       date : dateRef.current.value,
       item : itemRef.current.value,
       amount : amountRef.current.value,
       description : descriptionRef.current.value
     }
-    console.log(editContent);
     const editContents = contents.map(content => content.id === id ? editContent : content)
     setContents(editContents)
     navigate('/');
   }
+
+   const deleteHandler = () => {
+    const deleteContent = {
+      ...findData,
+      date : dateRef.current.value,
+      item : itemRef.current.value,
+      amount : amountRef.current.value,
+      description : descriptionRef.current.value
+    }
+    const deleteContents = contents.filter(content => content.id !== deleteContent.id)
+    setContents(deleteContents)
+    navigate('/');
+   }
 
   return (
     <DetailContainer>
@@ -75,7 +86,7 @@ const DetailPage = ({contents, setContents}) => {
         <DetailInput type="text" defaultValue={findData.description} ref={descriptionRef}/>
         <DetailBtnBox>
           <DetailBtn onClick={editHandler}>수정</DetailBtn>
-          <DetailBtn>삭제</DetailBtn>
+          <DetailBtn onClick={deleteHandler}>삭제</DetailBtn>
           <Link to="/">
             <DetailBtn>뒤로가기</DetailBtn>
           </Link>

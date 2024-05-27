@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent, Text, InputBtn, InputStyle} from '../style/stylecomponent.jsx';
 import { Link, Router, json } from "react-router-dom";
 import styled from "styled-components";
+import { ListContext } from "../Router.jsx";
 
 function Home({contents, setContents}) {
   const [date, setDate] = useState("");
@@ -33,7 +34,6 @@ function Home({contents, setContents}) {
       description: description,
     };
     setContents([...contents, newContent]);
-    // localStorage.setItem("key", JSON.stringify([...contents, newContent]));
     setItem("");
     setAmount("");
     setDescription("");
@@ -44,20 +44,8 @@ function Home({contents, setContents}) {
     localStorage.setItem("clickedMonth", month);
   }
 
-  // useEffect(()=> {
-  //   const savedData = JSON.parse(localStorage.getItem("key"));
-  //   if(!savedData){
-  //     setContents(fakeData);
-  //     localStorage.setItem("key", JSON.stringify(fakeData));
-  //     return 
-  //   }
-  //   setContents(savedData);
-  // }, [])
 
-  // useEffect(()=> {
-  //   const clickedMonth = Number(localStorage.getItem("clickedMonth"));
-  //   setNowMonth(clickedMonth)
-  // }, [])
+  const { contents : test } = useContext(ListContext)
 
   return (
     <Container>
@@ -125,7 +113,7 @@ function Home({contents, setContents}) {
         })}
       </MonthBoxList>
       <ListBox>
-        {contents
+        {test
           .filter(
             (content) =>
               content.date.split("-")[1] ===
@@ -134,11 +122,7 @@ function Home({contents, setContents}) {
           .map((content) => (
             <List
               key={content.id}
-              id={content.id}
-              date={content.date}
-              item={content.item}
-              amount={content.amount}
-              description={content.description}
+              content={content}
             />
           ))}
       </ListBox>
@@ -151,14 +135,14 @@ export default Home;
 const LinkStyle = styled(Link)`
   text-decoration: none;
 `
-
-const List = ({ id, date, item, amount, description }) => {
+  
+const List = ({ content }) => {
   return (
     <ListContent>
-      <LinkStyle to={`/DetailPage/${id}`}>
-        <Text>{date}</Text>
-        <Text style={{width: "600px"}}>{item} - {description}</Text>
-        <Text>{amount}</Text>
+      <LinkStyle to={`/DetailPage/${content.id}`}>
+        <Text>{content.date}</Text>
+        <Text style={{width: "600px"}}>{content.item} - {content.description}</Text>
+        <Text>{content.amount}</Text>
       </LinkStyle>
     </ListContent>
   );

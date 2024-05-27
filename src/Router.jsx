@@ -1,7 +1,8 @@
 import Home from './pages/Home';
 import DetailPage from './pages/DetailPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from 'react';
+import { createContext, useState } from 'react';
+
 
 const fakeData = [
   {
@@ -48,17 +49,24 @@ const fakeData = [
   },
 ]
 
+export const ListContext = createContext({
+  contents : fakeData,
+  bool : false
+});
+
 const Router = () => {
   const savedData = JSON.parse(localStorage.getItem("key")) || fakeData;
   const [contents, setContents] = useState(savedData);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home contents={contents} setContents={setContents}/>} />
-        <Route path="/DetailPage/:id" element={<DetailPage contents={contents} setContents={setContents}/> }/>
-      </Routes>
-    </BrowserRouter>
+    <ListContext.Provider value={{ contents }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home contents={contents} setContents={setContents}/>} />
+          <Route path="/DetailPage/:id" element={<DetailPage contents={contents} setContents={setContents}/> }/>
+        </Routes>
+      </BrowserRouter>
+    </ListContext.Provider>
   );
 
 };
