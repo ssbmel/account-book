@@ -50,7 +50,7 @@ const DetailPage = ({contents, setContents}) => {
   const navigate = useNavigate();
 
 
-  const editHandler = () => {
+  const editHandler = () => {   
     const editContent = {
       ...findData,
       date : dateRef.current.value,
@@ -59,10 +59,10 @@ const DetailPage = ({contents, setContents}) => {
       description : descriptionRef.current.value
     }
     const editContents = contents.map(content => content.id === id ? editContent : content)
+    alert("수정하시겠습니까?");
     setContents(editContents)
-    navigate('/');
-  }
-
+    navigate('/'); 
+  } 
    const deleteHandler = () => {
     const deleteContent = {
       ...findData,
@@ -72,6 +72,7 @@ const DetailPage = ({contents, setContents}) => {
       description : descriptionRef.current.value
     }
     const deleteContents = contents.filter(content => content.id !== deleteContent.id)
+    alert("정말로 삭제하시겠습니까?");
     setContents(deleteContents)
     navigate('/');
    }

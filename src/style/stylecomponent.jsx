@@ -28,16 +28,18 @@ export const InputContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
 `;
 export const InputStyle = styled.input`
   height: 25px;
   margin-left: 10px;
+
 `
 export const InputBtn = styled.button`
   width: 60px;
   height: 30px;
   background-color: rgba(249, 181, 4, 1);
-  border: none;
+
   color: black;
   cursor: pointer;
 `
