@@ -74,7 +74,7 @@ function Home({contents, setContents}) {
         <InputContent>
           금액
           <InputStyle
-            type="text"
+            type="number"
             placeholder="지출 금액"
             value={amount}
             onChange={(e) => {
