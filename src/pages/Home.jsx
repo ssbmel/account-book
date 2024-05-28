@@ -5,7 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import {Container, InputBox, InputContent, MonthBoxList, MonthBox, ListBox, ListContent, Text, InputBtn, InputStyle, AmountText} from '../style/stylecomponent.jsx';
 import { Link, Router, json } from "react-router-dom";
 import styled from "styled-components";
-import { ListContext } from "../Router.jsx";
+import { ListContext } from "../context/Component.js";
+
 
 function Home({contents, setContents}) {
   const [date, setDate] = useState("");
